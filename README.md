@@ -146,7 +146,7 @@ Property file выбирается в зависимости от выбранн
 
 Видео-пример выполнения UI-теста с помощью Selenoid
 
-<video src="https://selenoid.autotests.cloud/video/b712100d4a050424e4f10d1add6b7b85.mp4"
+<video src="https://github.com/geraniya13/Diploma/blob/master/pictures/UI.mp4"
 controls="controls" style="max-width: 730px;" poster="/pictures/logos/Selenoid.svg"></video>
 
 <a id="browserstack"></a>
@@ -154,7 +154,7 @@ controls="controls" style="max-width: 730px;" poster="/pictures/logos/Selenoid.s
 
 Видео-пример выполнения Mobile-теста с помощью Browserstack
 
-<video src="https://app-automate.browserstack.com/sessions/98bed8919345eb896d92fcbf9c262db505adac21/video?token=QkF0VFZ4VThJVTljSkdXMDZTVWNLWTN4WXpIZ0xiZE5TcXRteHRrQU1yZWpaU203dFIxMzVocDdzT0VlcXVTYzlXUGxyaU5MdGYvNkxZajBIV1R2ZkE9PS0tTTM4MHZiRFJDbFZpOXdNYUJTeFMxdz09--e7706fa8e4213ca4dd5956bd4db1f50e3d6ed5a0&source=rest_api&diff=1.91882513"
+<video src="https://github.com/geraniya13/Diploma/blob/master/pictures/Mobile.mp4"
 controls="controls" style="max-width: 730px;" poster="/pictures/logos/Browserstack.svg"></video>
 
 <a id="telegram"></a>
