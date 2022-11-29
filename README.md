@@ -99,7 +99,7 @@ Property file выбирается в зависимости от выбранн
 >- *`VIDEO_STORAGE` - адрес хранилища видео Selenoid*
 
 <a id="allure"></a>
-## <a href="https://jenkins.autotests.cloud/job/014-java-geraniya-diploma/allure/"><img alt="Allure" height="50" src="pictures/Allure.svg" width="50"/></a>
+## <a href="https://jenkins.autotests.cloud/job/014-java-geraniya-diploma/allure/"><img alt="Allure" height="50" src="pictures/Allure.svg" width="50"/>Allure</a>
 
 Пример Allure отчёта
 
@@ -120,7 +120,7 @@ Property file выбирается в зависимости от выбранн
 </table>
 
 <a id="allure-testops"></a>
-## <a href="https://allure.autotests.cloud/project/1715/dashboards"><img alt="Allure TestOps" height="50" src="pictures/Allure TestOps.svg" width="50"/></a>
+## <a href="https://allure.autotests.cloud/project/1715/dashboards"><img alt="Allure TestOps" height="50" src="pictures/Allure TestOps.svg" width="50"/>Allure Test Ops</a>
 
 Пример Allure TestOps отчёта
 
@@ -142,23 +142,23 @@ Property file выбирается в зависимости от выбранн
 </table>
 
 <a id="selenoid"></a>
-## <img alt="Selenoid" height="50" src="pictures/Selenoid.svg" width="50"/> Selenoid</a>
+## <img alt="Selenoid" height="50" src="pictures/Selenoid.svg" width="50"/>Selenoid</a>
 
 Видео-пример выполнения UI-теста с помощью Selenoid
 
-<video src="TBA"
+<video src="https://selenoid.autotests.cloud/video/b712100d4a050424e4f10d1add6b7b85.mp4"
 controls="controls" style="max-width: 730px;" poster="/pictures/logos/Selenoid.svg"></video>
 
 <a id="browserstack"></a>
-## <img alt="Browserstack" height="45" src="pictures/Browserstack.svg" width="45"/> Browserstack</a>
+## <img alt="Browserstack" height="45" src="pictures/Browserstack.svg" width="45"/>Browserstack</a>
 
 Видео-пример выполнения Mobile-теста с помощью Browserstack
 
-<video src="TBA"
+<video src="https://app-automate.browserstack.com/sessions/98bed8919345eb896d92fcbf9c262db505adac21/video?token=QkF0VFZ4VThJVTljSkdXMDZTVWNLWTN4WXpIZ0xiZE5TcXRteHRrQU1yZWpaU203dFIxMzVocDdzT0VlcXVTYzlXUGxyaU5MdGYvNkxZajBIV1R2ZkE9PS0tTTM4MHZiRFJDbFZpOXdNYUJTeFMxdz09--e7706fa8e4213ca4dd5956bd4db1f50e3d6ed5a0&source=rest_api&diff=1.91882513"
 controls="controls" style="max-width: 730px;" poster="/pictures/logos/Browserstack.svg"></video>
 
 <a id="telegram"></a>
-## <a href="https://t.me/qa_guru_14_geraniya_bot"><img alt="Telegram" height="50" src="pictures/Telegram.svg" width="50"/></a>
+## <a href="https://t.me/qa_guru_14_geraniya_bot"><img alt="Telegram" height="50" src="pictures/Telegram.svg" width="50"/>Telegram</a>
 
 Пример уведомления в Telegram-бот по окончании выполнения тестов
 
