@@ -27,7 +27,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @Owner("Geraniya")
 public class ZvetApiTests extends ApiTestBase {
     @Tag("Api")
-    @AllureId("101")
     @DisplayName("User name is changed properly")
     @Test
     public void changeUserNameTest() {
@@ -41,7 +40,6 @@ public class ZvetApiTests extends ApiTestBase {
     }
 
     @Tag("Api")
-    @AllureId("102")
     @DisplayName("Items are added in wishlist properly")
     @Test
     public void addItemsInWishListTest() {
@@ -59,7 +57,6 @@ public class ZvetApiTests extends ApiTestBase {
     }
 
     @Tag("Api")
-    @AllureId("103")
     @MethodSource("addItemsInBasket")
     @ParameterizedTest(name = "Item with product_id = {0} is added in basket properly")
     public void addItemsInBasket(String productId, Product product) {

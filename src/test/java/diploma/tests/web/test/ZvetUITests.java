@@ -22,7 +22,6 @@ import java.util.stream.Stream;
 public class ZvetUITests extends WebTestBase {
 
     @Tag("Web")
-    @AllureId("104")
     @ParameterizedTest(name = "Add bouquet {0} to basket")
     @EnumSource(Flowers.class)
     void addItemToCartFromMainTest(Flowers flowers) {
@@ -32,7 +31,6 @@ public class ZvetUITests extends WebTestBase {
     }
 
     @Tag("Web")
-    @AllureId("105")
     @Test()
     @DisplayName("Check continue button in empty basket")
     void continueInEmptyBasketTest() {
@@ -41,7 +39,6 @@ public class ZvetUITests extends WebTestBase {
     }
 
     @Tag("Web")
-    @AllureId("106")
     @MethodSource
     @ParameterizedTest(name = "Calculate total sum for {0} {1} with price {2} for {3} pieces")
     void calculatorTest(String flower, String color, int price, int pack) {
