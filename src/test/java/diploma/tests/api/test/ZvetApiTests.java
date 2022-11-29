@@ -57,6 +57,7 @@ public class ZvetApiTests extends ApiTestBase {
     }
 
     @Tag("Api")
+    @DisplayName("Items are added in basket properly")
     @MethodSource("addItemsInBasket")
     @ParameterizedTest(name = "Item with product_id = {0} is added in basket properly")
     public void addItemsInBasket(String productId, Product product) {
