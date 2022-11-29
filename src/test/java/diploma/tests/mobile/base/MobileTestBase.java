@@ -18,16 +18,16 @@ public class MobileTestBase {
     @BeforeAll
     @Step("Mobile test configuration")
     public static void setup() throws Exception {
-        switch (environment) {
-            case "remote" -> {
-                Configuration.browser = BrowserstackMobileDriver.class.getName();
-                Configuration.browserSize = null;
-            }
-            case "local" -> {
-                Configuration.browser = LocalMobileDriver.class.getName();
-                Configuration.browserSize = null;
-            }
-            default -> throw new Exception("Wrong environment");
+        if (environment.equals("remote")) {
+            Configuration.browser = BrowserstackMobileDriver.class.getName();
+            Configuration.browserSize = null;
+        }
+        else if (environment.equals("local")) {
+            Configuration.browser = LocalMobileDriver.class.getName();
+            Configuration.browserSize = null;
+        }
+        else {
+            throw new Exception("Wrong environment");
         }
     }
 
