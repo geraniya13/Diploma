@@ -18,19 +18,19 @@ import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class Attach {
 
-    @Step("Сделать скрин")
-    @Attachment(value = "Screenshot name", type = "image/png", fileExtension = "png")
+    @Step("Take screenshot")
+    @Attachment(value = "Screenshot", type = "image/png", fileExtension = "png")
     public static byte[] takeScreenshot() {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
-    @Step("Добавить исходник страницы (в тексте и без аннотации)")
+    @Step("Get page source")
     public static void addSource() {
         attachment("Source", webdriver().driver().source());
     }
 
-    @Step("Добавить исходник страницы (как html страницу и с аннотацией)")
-    @Attachment(value = "Source name", type = "text/html")
+    @Step("Get html page")
+    @Attachment(value = "Source", type = "text/html")
     public static byte[] addHTMLSource() {
         return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
     }
@@ -40,7 +40,7 @@ public class Attach {
         return message;
     }
 
-    @Step("Добавить логи консоли браузера")
+    @Step("Get browser logs")
     public static void addBrowserConsoleLog() {
         attachAsText(
                 "Логи консоли браузера",
@@ -48,7 +48,7 @@ public class Attach {
         );
     }
 
-    @Step("Добавить видео")
+    @Step("Get test video")
     @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
     public static String addVideo() {
         return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
