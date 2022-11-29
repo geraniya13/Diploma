@@ -147,7 +147,6 @@ Property file выбирается в зависимости от выбранн
 Видео-пример выполнения UI-теста с помощью Selenoid
 
 <video src="https://github.com/geraniya13/Diploma/blob/master/pictures/UI.mp4" controls="controls" style="max-width: 730px;" poster="/pictures/logos/Selenoid.svg"></video>
-<video src="https://github.com/geraniya13/Diploma/blob/master/pictures/UI.mp4" data-canonical-src="https://github.com/geraniya13/Diploma/blob/master/pictures/UI.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
 
 <a id="browserstack"></a>
 ## <img alt="Browserstack" height="45" src="pictures/Browserstack.svg" width="45"/>Browserstack</a>
