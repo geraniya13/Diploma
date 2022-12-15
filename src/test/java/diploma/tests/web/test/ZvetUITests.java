@@ -2,7 +2,6 @@ package diploma.tests.web.test;
 
 import diploma.tests.web.base.WebTestBase;
 import diploma.tests.web.dictionary.Flowers;
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
@@ -20,29 +19,26 @@ import java.util.stream.Stream;
 @Feature("Web tests")
 @Owner("Geraniya")
 public class ZvetUITests extends WebTestBase {
-
-    @Tag("Web")
-    @DisplayName("Items are added in wishlist properly")
     @ParameterizedTest(name = "Add bouquet {0} to basket")
+    @Tag("Web")
+    @DisplayName("Items in wishlist adding check")
     @EnumSource(Flowers.class)
     void addItemToCartFromMainTest(Flowers flowers) {
         mainPage.openPage();
         mainPage.addToCart(flowers.getProductName());
         basketPage.isFlowerExistsInBasket(flowers.getProductName());
     }
-
-    @Tag("Web")
     @Test()
+    @Tag("Web")
     @DisplayName("Check continue button in empty basket")
     void continueInEmptyBasketTest() {
         basketPage.openPage();
         basketPage.checkEmptyBasket();
     }
-
+    @ParameterizedTest(name = "Calculate total sum for {0} {1} with price {2} for {3} pieces")
     @Tag("Web")
     @DisplayName("Calculator counts correctly")
     @MethodSource
-    @ParameterizedTest(name = "Calculate total sum for {0} {1} with price {2} for {3} pieces")
     void calculatorTest(String flower, String color, int price, int pack) {
         mainPage.openPage();
         mainPage.calculateFlowerPrice(flower, color, price, pack);
@@ -51,7 +47,7 @@ public class ZvetUITests extends WebTestBase {
     static Stream<Arguments> calculatorTest() {
         return Stream.of(
                 Arguments.of("Гербера", "Малиновая", 149, 30),
-                Arguments.of("Калла", "Белая", 299, 10),
+                Arguments.of("Калла", "Белая", 199, 10),
                 Arguments.of("Хризантема", "Карамельная", 299, 10)
         );
     }
