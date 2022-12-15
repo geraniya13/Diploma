@@ -1,9 +1,7 @@
 package diploma.tests.api.page;
 
-import com.github.javafaker.Faker;
-import diploma.tests.GlobalTestData;
+import diploma.tests.GlobalTestAuthorization;
 import diploma.tests.api.models.AddToBasketResponseModel;
-import diploma.tests.api.models.AddToWishListResponseModel;
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import org.apache.commons.lang3.StringUtils;
@@ -15,17 +13,17 @@ import static diploma.tests.api.specs.Specs.response;
 import static io.restassured.RestAssured.given;
 
 public class BasketApiPage {
-    private GlobalTestData globalTestData = GlobalTestData.getInstance();
+    private GlobalTestAuthorization globalTestAuthorization = GlobalTestAuthorization.getInstance();
     private int addedItems = 0;
     private ArrayList<String> itemsToDelete;
 
     @Step("Add item in Basket")
     public AddToBasketResponseModel addToBasket(String item) {
             return given()
-                    .spec(getCookieRequest(globalTestData.getAllDetailedCookies()))
+                    .spec(getCookieRequest(globalTestAuthorization.getAllDetailedCookies()))
                     .contentType(ContentType.URLENC)
                     .header("x-requested-with", "XMLHttpRequest")
-                    .header("x-xsrf-token", globalTestData.getCorrectXsrfToken())
+                    .header("x-xsrf-token", globalTestAuthorization.getCorrectXsrfToken())
                     .body("product_id=" + item + "&quantity=1")
                     .when()
                     .post("/basket/add")
@@ -38,7 +36,7 @@ public class BasketApiPage {
     @Step("Open wishlist and count added items")
     public int openWishListAndCountItems() {
         String responseBody = given()
-                .spec(getCookieRequest(globalTestData.getAllDetailedCookies()))
+                .spec(getCookieRequest(globalTestAuthorization.getAllDetailedCookies()))
                 .when()
                 .get("/wishlist/")
                 .then()
@@ -52,7 +50,7 @@ public class BasketApiPage {
     public BasketApiPage deleteItemsFromWishList() {
         for (String item : getItemsToDelete()) {
             given()
-                    .spec(getCookieRequest(globalTestData.getAllDetailedCookies()))
+                    .spec(getCookieRequest(globalTestAuthorization.getAllDetailedCookies()))
                     .queryParam("remove", item)
                     .when()
                     .get("/wishlist/")

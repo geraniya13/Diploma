@@ -17,6 +17,7 @@ import static io.qameta.allure.Allure.attachment;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class Attach {
+    static String videoUrl = "https://selenoid.autotests.cloud/video/";
 
     @Step("Take screenshot")
     @Attachment(value = "Screenshot", type = "image/png", fileExtension = "png")
@@ -57,10 +58,10 @@ public class Attach {
     }
 
     public static URL getVideoUrl() {
-        String videoUrl = "https://selenoid.autotests.cloud/video/" + getSessionId() + ".mp4";
+        String url = videoUrl + getSessionId() + ".mp4";
 
         try {
-            return new URL(videoUrl);
+            return new URL(url);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

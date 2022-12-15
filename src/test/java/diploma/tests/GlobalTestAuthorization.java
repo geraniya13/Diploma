@@ -5,18 +5,18 @@ import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
 @Data
-public class GlobalTestData {
-    private static volatile GlobalTestData instance;
+public class GlobalTestAuthorization {
+    private static volatile GlobalTestAuthorization instance;
     private String authorizeButtonToken;
     private Cookies allDetailedCookies;
 
-    public static GlobalTestData getInstance() {
-        GlobalTestData localInstance = instance;
+    public static GlobalTestAuthorization getInstance() {
+        GlobalTestAuthorization localInstance = instance;
         if (localInstance == null) {
-            synchronized (GlobalTestData.class) {
+            synchronized (GlobalTestAuthorization.class) {
                 localInstance = instance;
                 if (localInstance == null) {
-                    instance = localInstance = new GlobalTestData();
+                    instance = localInstance = new GlobalTestAuthorization();
                 }
             }
         }

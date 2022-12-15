@@ -7,20 +7,10 @@ import org.aeonbits.owner.Config;
         "system:properties",
         "classpath:config/web/${environment}.properties"
 })
-public interface ZvetConfig extends org.aeonbits.owner.Config {
-
-    @Key("browserName")
-    String getBrowserName();
-
-    @Key("browserVersion")
-    String getBrowserVersion();
-
-    @Key("browserSize")
-    String getBrowserSize();
-
-    @Key("browserPosition")
-    String getBrowserPosition();
-
-    @Key("selenoidRemoteUrl")
-    String getRemoteUrl();
+public interface ZvetConfig extends Config {
+    String browserName();
+    String browserVersion();
+    String browserSize();
+    String browserPosition();
+    String remoteUrl();
 }

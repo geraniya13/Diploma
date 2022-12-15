@@ -1,12 +1,10 @@
 package diploma.tests.mobile.drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
-import diploma.config.MobileConfig;
 import diploma.tests.GlobalTestBase;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.remote.AutomationName;
-import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 
@@ -27,12 +25,12 @@ public class LocalMobileDriver extends GlobalTestBase implements WebDriverProvid
 
         options.merge(capabilities);
         options.setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2);
-        options.setPlatformName(mobileConfig.getPlatformName());
-        options.setDeviceName(mobileConfig.getDevice());
-        options.setPlatformVersion(mobileConfig.getOsVersion());
+        options.setPlatformName(mobileConfig.platformName());
+        options.setDeviceName(mobileConfig.device());
+        options.setPlatformVersion(mobileConfig.osVersion());
         options.setApp(app.getAbsolutePath());
-        options.setAppPackage(mobileConfig.getAppPackage());
-        options.setAppActivity(mobileConfig.getAppActivity());
+        options.setAppPackage(mobileConfig.appPackage());
+        options.setAppActivity(mobileConfig.appActivity());
 
         return new AndroidDriver(getAppiumServerUrl(), options);
     }

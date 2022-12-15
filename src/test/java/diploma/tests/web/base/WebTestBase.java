@@ -4,7 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import diploma.config.ZvetConfigProvider;
 import diploma.tests.GlobalTestBase;
-import diploma.tests.GlobalTestData;
+import diploma.tests.GlobalTestAuthorization;
 import diploma.tests.web.pages.BasketPage;
 import diploma.tests.web.pages.MainPage;
 import io.qameta.allure.Step;
@@ -29,15 +29,15 @@ public class WebTestBase extends GlobalTestBase {
     @Step("Adjust browser settings")
     static void setup() {
         SelenideLogger.addListener("allureTest", new AllureSelenide());
-        GlobalTestData globalTestData = GlobalTestData.getInstance();
+        GlobalTestAuthorization globalTestAuthorization = GlobalTestAuthorization.getInstance();
         globalConfigure();
-        Configuration.baseUrl = globalConfig.getBaseURI();
+        Configuration.baseUrl = credentialsConfig.baseURI();
         config.setWebConfiguration();
         step("Open browser with lite contents", () ->
                 open("/image/catalog/bouquet.svg"));
 
         step("Set cookies to browser", () -> {
-            for (Cookie cookie : globalTestData.getAllDetailedCookies()) {
+            for (Cookie cookie : globalTestAuthorization.getAllDetailedCookies()) {
                 getWebDriver().manage().addCookie(
                         new org.openqa.selenium.Cookie(cookie.getName(), cookie.getValue()));
             }

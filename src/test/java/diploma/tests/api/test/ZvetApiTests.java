@@ -2,7 +2,6 @@ package diploma.tests.api.test;
 
 import diploma.tests.api.models.AddToBasketResponseModel;
 import diploma.tests.api.models.Product;
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
