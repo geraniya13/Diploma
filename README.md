@@ -1,10 +1,10 @@
 # Проект по автоматизации тестирования
-## Проект состоит из двух частей: <a href="#part1">тестирование веб-приложения</a> и <a href="#part2">тестирование мобилного приложения</a>
+## Проект состоит из двух частей: <a href="#part1">тестирование веб-приложения</a> и <a href="#part2">тестирование мобильного приложения</a>
 
 ## :bookmark: Содержание
 * <a href="#part1">Автоматизация веб-тестирования интернет магазина Мегацвет-24</a>
   + <a href="#description-web">Описание</a>
-* <a href="#part2">Aвтоматизация тестов для мобилного приложения CoinKeeper</a>
+* <a href="#part2">Aвтоматизация тестов для мобильного приложения CoinKeeper</a>
   + <a href="#description-mobile">Описание</a>
 * <a href="#stack">Cтек технологий</a>
 * <a href="#gradle-launch">Запуск проекта с помощью терминала</a>
@@ -32,7 +32,7 @@
 - [x] Кастомный Allure listener для форматированного логирования API запросов/ответов
 - [x] Интеграция с `Allure TestOps`
 
-## :vibration_mode: <a name="part2">Тестирование мобилного приложения CoinKeeper</a>
+## :vibration_mode: <a name="part2">Тестирование мобильного приложения CoinKeeper</a>
 ![logo_megacvet.png](https://play-lh.googleusercontent.com/koRxwP270fRjxWwb5cilmbP6xiAKG4BpYAMG0B50YJfZjeZvuj01AvLq4myOOXyLXT-J)
 <a id="description-mobile"></a>
 ## :closed_book: Описание
@@ -76,7 +76,7 @@ gradle clean <task> -Denvironment=<environment>
 >- *ui_tests*
 >- *mobile_tests*
 
-`env` - окружение, на котором будут выполнятся тесты:
+`environment` - окружение, на котором будут выполнятся тесты:
 >- *remote (для всех видов тестов)*
 >- *local (для всех видов тестов)*
 
@@ -91,12 +91,9 @@ Property file выбирается в зависимости от выбранн
 </a>
 
 Параметры сборки:
->- *`tag` - выбор вида тестов*
->- *`platform` - платформа*
->- *`env` - окружение, на котором будут выполнятся тесты*
->- *`browser` - браузер*
->- *`REMOTE_URL` - адрес Selenoid / Browserstack*
->- *`VIDEO_STORAGE` - адрес хранилища видео Selenoid*
+>- *`task` - выбор вида тестов*
+>- *`environment` - окружение, на котором будут выполнятся тесты*
+
 
 <a id="allure"></a>
 ## <a href="https://jenkins.autotests.cloud/job/014-java-geraniya-diploma/allure/"><img alt="Allure" height="50" src="pictures/Allure.svg" width="50"/>Allure</a>
