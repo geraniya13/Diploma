@@ -25,54 +25,53 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @Feature("Api tests")
 @Owner("Geraniya")
 public class ZvetApiTests extends ApiTestBase {
-    @Tag("Api")
-    @DisplayName("User name is changed properly")
     @Test
+    @Tag("Api")
+    @DisplayName("User name changing check")
     public void changeUserNameTest() {
-        step("Open personal info edit page", () -> {
-            accountApiPage.openEditAccountPage();
-        });
+        step("Open personal info edit page", () -> accountApi.openEditAccountPage());
         step("Check if name was changed", () -> {
-            accountApiPage.changeUserName();
-            assertThat(accountApiPage.getCurrentUserName()).doesNotContain(accountApiPage.getUserBodyModel().getFirstname());
+            accountApi.changeUserName();
+            assertThat(accountApi.getCurrentUserName()).doesNotContain(accountApi.getUserBodyModel().getFirstname());
         });
     }
-
-    @Tag("Api")
-    @DisplayName("Items are added in wishlist properly")
     @Test
+    @Tag("Api")
+    @DisplayName("Items in wishlist adding check")
     public void addItemsInWishListTest() {
         step("Try to add random items in wishlist", () -> {
-            for (int i = 0; i < 3; i++) {
-                wishListApiPage.addToWishList();
-            }
+                wishListApi.tryToAddRandomItemAndCountSuccessfullyAdded();
+                wishListApi.tryToAddRandomItemAndCountSuccessfullyAdded();
+                wishListApi.tryToAddRandomItemAndCountSuccessfullyAdded();
         });
-        step("Check if all available items were added", () -> {
-            assertEquals(wishListApiPage.getAddedItems(), wishListApiPage.openWishListAndCountItems());
-        });
+        step("Check if all available items were added", () -> assertEquals(wishListApi.getAddedItems(), wishListApi.countActualItems()));
         step("Clear wishlist", () -> {
-            wishListApiPage.deleteItemsFromWishList();
+            wishListApi.addItemsToDeletionList();
+            wishListApi.deleteAllItems();
+            assertEquals(0, wishListApi.countActualItems());
         });
     }
 
+    @ParameterizedTest(name = "Item with product_id = {0} is added in basket")
     @Tag("Api")
-    @DisplayName("Items are added in basket properly")
-    @MethodSource("addItemsInBasket")
-    @ParameterizedTest(name = "Item with product_id = {0} is added in basket properly")
+    @DisplayName("Items in basket adding check")
+ //   @MethodSource("addItemsInBasket")
+    @MethodSource("diploma.tests.api.api.BasketApi#addItemsInBasket")
     public void addItemsInBasket(String productId, Product product) {
         step("Add item in basket and check it was successful", () -> {
-            AddToBasketResponseModel response = basketApiPage.addToBasket(productId);
+            AddToBasketResponseModel response = basketApi.addItem(productId);
             assertThat(response.isSuccess()).isTrue();
             assertEquals(response.getEcommerce().getProducts().get(0).getQuantity(), product.getQuantity());
             assertEquals(response.getEcommerce().getProducts().get(0).getId(), product.getId());
         });
     }
 
-    static Stream<Arguments> addItemsInBasket() {
-        return Stream.of(
-                Arguments.of("9489", new Product("0009489", "Новогодний букет \\\"Красный\\\" в стаканчике", 1, "Букеты", 1199)),
-                Arguments.of("908", new Product("0000908", "Букет \\\"С Днем Рождения\\\" мини", 1, "Букеты", 3199)),
-                Arguments.of("2572", new Product("0002572", "Букет \\\"Белые Розы и Альстромерии\\\" в коробке", 1, "Букеты", 3299))
-        );
-    }
+//    static Stream<Arguments> addItemsInBasket() {
+//        return Stream.of(
+//                Arguments.of("9489", new Product("0009489", "Новогодний букет \\\"Красный\\\" в стаканчике", 1, "Букеты", 1199)),
+//                Arguments.of("908", new Product("0000908", "Букет \\\"С Днем Рождения\\\" мини", 1, "Букеты", 3199)),
+//                Arguments.of("2572", new Product("0002572", "Букет \\\"Белые Розы и Альстромерии\\\" в коробке", 1, "Букеты", 3299))
+//        );
+//    }
+
 }

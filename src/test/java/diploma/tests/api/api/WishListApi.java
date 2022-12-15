@@ -1,4 +1,4 @@
-package diploma.tests.api.page;
+package diploma.tests.api.api;
 
 import com.github.javafaker.Faker;
 import diploma.tests.GlobalTestAuthorization;
@@ -12,17 +12,14 @@ import java.util.ArrayList;
 import static diploma.tests.api.specs.Specs.*;
 import static io.restassured.RestAssured.given;
 
-public class WishListApiPage {
+public class WishListApi {
     private GlobalTestAuthorization globalTestAuthorization = GlobalTestAuthorization.getInstance();
-
     private Faker faker = new Faker();
-
     private int addedItems = 0;
-
     private ArrayList<String> itemsToDelete;
 
     @Step("Try to add item in WishList")
-    public WishListApiPage addToWishList() {
+    public WishListApi tryToAddRandomItemAndCountSuccessfullyAdded() {
         try {
             AddToWishListResponseModel responseModel = given()
                     .spec(getCookieRequest(globalTestAuthorization.getAllDetailedCookies()))
@@ -47,7 +44,7 @@ public class WishListApiPage {
     }
 
     @Step("Open wishlist and count added items")
-    public int openWishListAndCountItems() {
+    public int countActualItems() {
         String responseBody = given()
                 .spec(getCookieRequest(globalTestAuthorization.getAllDetailedCookies()))
                 .when()
@@ -59,8 +56,20 @@ public class WishListApiPage {
         return getItemsCountFromBody(responseBody);
     }
 
+    @Step("Open wishlist and get item list to be deleted")
+    public WishListApi addItemsToDeletionList() {
+        setItemsToDelete(getItemsFromBody(given()
+                .spec(getCookieRequest(globalTestAuthorization.getAllDetailedCookies()))
+                .when()
+                .get("/wishlist/")
+                .then()
+                .spec(response)
+                .extract().body().asPrettyString()));
+        return this;
+    }
+
     @Step("Remove all items from wishlist")
-    public WishListApiPage deleteItemsFromWishList() {
+    public WishListApi deleteAllItems() {
         for (String item : getItemsToDelete()) {
             given()
                     .spec(getCookieRequest(globalTestAuthorization.getAllDetailedCookies()))

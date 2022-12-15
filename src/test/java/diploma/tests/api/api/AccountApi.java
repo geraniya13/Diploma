@@ -1,4 +1,4 @@
-package diploma.tests.api.page;
+package diploma.tests.api.api;
 
 import com.github.javafaker.Faker;
 import diploma.tests.GlobalTestAuthorization;
@@ -10,13 +10,13 @@ import io.restassured.response.Response;
 import static diploma.tests.api.specs.Specs.*;
 import static io.restassured.RestAssured.given;
 
-public class AccountApiPage {
+public class AccountApi {
     private GlobalTestAuthorization globalTestAuthorization = GlobalTestAuthorization.getInstance();
     private UserBodyModel userBodyModel = new UserBodyModel();
     private Faker faker = new Faker();
 
     @Step("Get current user name and change button token")
-    public AccountApiPage openEditAccountPage() {
+    public AccountApi openEditAccountPage() {
         Response response = given().spec(getCookieRequest(globalTestAuthorization.getAllDetailedCookies())).get("/edit-account/");
         userBodyModel.setToken(userBodyModel.getInfoFromBody("_token", response.getBody().asPrettyString()));
         userBodyModel.setFirstname(userBodyModel.getInfoFromBody("firstname", response.getBody().asPrettyString()));
@@ -28,18 +28,16 @@ public class AccountApiPage {
     }
 
     @Step("Change user name")
-    public AccountApiPage changeUserName() {
+    public AccountApi changeUserName() {
         given()
                 .spec(getCookieRequest(globalTestAuthorization.getAllDetailedCookies()))
                 .contentType(ContentType.URLENC)
                 .formParams(userBodyModel.getFieldsAsMap(faker.name().firstName()))
                 .when()
-            //    .redirects().follow(true)
                 .post("/edit-account/")
                 .then()
                 .spec(redirectedResponse);
         return this;
-     //           .body().htmlPath().getString("html.body.div[5].div[2].div.div.div[1].div[1].div.p[1]");
     }
 
     @Step("Open User Account Page")
@@ -53,7 +51,7 @@ public class AccountApiPage {
                 .then()
                 .spec(response)
                 .extract()
-                .body().htmlPath().getString("html.body.div[5].div[2].div.div.div[1].div[1].div.p[1]");
+                .body().htmlPath().getString("div[5].div[2].div.div.div[1].div[1].div.p[1]");
     }
 
     public UserBodyModel getUserBodyModel() {

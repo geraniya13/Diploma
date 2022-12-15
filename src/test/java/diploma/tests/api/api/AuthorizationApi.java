@@ -1,4 +1,4 @@
-package diploma.tests.api.page;
+package diploma.tests.api.api;
 
 import diploma.tests.GlobalTestAuthorization;
 import io.qameta.allure.Step;
@@ -12,7 +12,7 @@ import static diploma.tests.api.specs.Specs.*;
 import static io.restassured.config.RedirectConfig.redirectConfig;
 
 
-public class ZvetApiPage {
+public class AuthorizationApi {
     private GlobalTestAuthorization globalTestAuthorization = GlobalTestAuthorization.getInstance();
 
     @Step("Get cookies")
@@ -28,7 +28,7 @@ public class ZvetApiPage {
     }
 
     @Step("Sign In")
-    public ZvetApiPage login(String email, String password) {
+    public AuthorizationApi login(String email, String password) {
         LoginBodyModel loginBodyModel = new LoginBodyModel();
         loginBodyModel.setToken(globalTestAuthorization.getAuthorizeButtonToken());
         loginBodyModel.setEmail(email);
