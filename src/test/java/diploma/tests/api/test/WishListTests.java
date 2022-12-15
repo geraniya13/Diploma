@@ -27,7 +27,7 @@ public class WishListTests extends ApiTestBase {
             wishListApi.tryToAddRandomItemAndCountSuccessfullyAdded();
         });
         step("Check if all available items were added", () -> assertEquals(wishListApi.getAddedItems(), wishListApi.countActualItems()));
-        step("Clear wishlist", () -> {
+        step("Clear wishlist and check it is empty", () -> {
             wishListApi.addItemsToDeletionList();
             wishListApi.deleteAllItems();
             assertEquals(0, wishListApi.countActualItems());
