@@ -20,22 +20,17 @@ import static diploma.tests.mobile.elements.SnippetElements.snippetSkipBtn;
 @Feature("Mobile tests")
 @Owner("Geraniya")
 public class CoinKeeperTests extends MobileTestBase {
-
-    CoinKeeperMobilePage mobilePage = new CoinKeeperMobilePage();
-
     @Test
     @DisplayName("Snippet page test")
     void snippetPageContentTest() {
         mobilePage.checkFirstSnippetPage();
     }
-
     @Test
     @DisplayName("Skipping first snippet page test")
     void skipSnippetPageTest() {
         mobilePage.clickOnElement(snippetSkipBtn);
         mobilePage.checkSecondSnippetPage();
     }
-
     @Test
     @DisplayName("Invalid authorization test")
     void invalidAuthorizationTest() {
@@ -44,5 +39,4 @@ public class CoinKeeperTests extends MobileTestBase {
         mobilePage.userAuthorization(invalidEmail, invalidPassword);
         mobilePage.checkDialogText(invalidLoginMsgText);
     }
-
 }

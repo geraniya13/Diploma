@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import diploma.tests.mobile.drivers.BrowserstackMobileDriver;
 import diploma.tests.mobile.drivers.LocalMobileDriver;
 import diploma.tests.mobile.helpers.Attach;
+import diploma.tests.mobile.page.CoinKeeperMobilePage;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -14,6 +15,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
 public class MobileTestBase {
+    public CoinKeeperMobilePage mobilePage = new CoinKeeperMobilePage();
     private static String environment = System.getProperty("environment");
     @BeforeAll
     @Step("Mobile test configuration")
