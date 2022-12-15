@@ -146,14 +146,14 @@ Property file выбирается в зависимости от выбранн
 
 Видео-пример выполнения UI-теста с помощью Selenoid
 
-<video src="https://user-images.githubusercontent.com/geraniya13/Diploma/master/pictures/UI.mp4" controls="controls" style="max-width: 730px;" poster="/pictures/logos/Selenoid.svg"></video>
+<video src="https://user-images.githubusercontent.com/69859200/204827375-950a2cbd-ac51-40bb-ad96-c16966c757e0.mp4" controls="controls" style="max-width: 730px;" poster="/pictures/logos/Selenoid.svg"></video>
 
 <a id="browserstack"></a>
 ## <img alt="Browserstack" height="45" src="pictures/Browserstack.svg" width="45"/>Browserstack</a>
 
 Видео-пример выполнения Mobile-теста с помощью Browserstack
 
-<video src="https://user-images.githubusercontent.com/geraniya13/Diploma/master/pictures/Mobile.mp4" controls="controls" style="max-width: 730px;" poster="/pictures/logos/Browserstack.svg"></video>
+<video src="https://user-images.githubusercontent.com/69859200/204828193-f3d831f5-f1ce-4636-accc-f239a93ffd4d.mp4" controls="controls" style="max-width: 730px;" poster="/pictures/logos/Browserstack.svg"></video>
 
 <a id="telegram"></a>
 ## <a href="https://t.me/qa_guru_14_geraniya_bot"><img alt="Telegram" height="50" src="pictures/Telegram.svg" width="50"/>Telegram</a>
