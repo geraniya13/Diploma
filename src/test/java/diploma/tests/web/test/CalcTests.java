@@ -20,17 +20,9 @@ public class CalcTests extends WebTestBase {
     @ParameterizedTest(name = "Calculate total sum for {0} {1} with price {2} for {3} pieces")
     @Tag("Web")
     @DisplayName("Calculator counts correctly")
-    @MethodSource
+    @MethodSource("diploma.tests.web.pages.MainPage#calculatorTest")
     void calculatorTest(String flower, String color, int price, int pack) {
         mainPage.openPage();
         mainPage.calculateFlowerPrice(flower, color, price, pack);
-    }
-
-    static Stream<Arguments> calculatorTest() {
-        return Stream.of(
-                Arguments.of("Гербера", "Малиновая", 149, 30),
-                Arguments.of("Калла", "Белая", 199, 10),
-                Arguments.of("Хризантема", "Карамельная", 299, 10)
-        );
     }
 }

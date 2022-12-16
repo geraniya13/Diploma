@@ -2,6 +2,9 @@ package diploma.tests.web.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.params.provider.Arguments;
+
+import java.util.stream.Stream;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Configuration.baseUrl;
@@ -39,5 +42,13 @@ public class MainPage implements BasePage {
         step(String.format("Check calculation total sum"), () -> {
             $("div.itog span").shouldHave(text(price * pack + ""));
         });
+    }
+
+    static Stream<Arguments> calculatorTest() {
+        return Stream.of(
+                Arguments.of("Гербера", "Малиновая", 149, 30),
+                Arguments.of("Калла", "Белая", 199, 10),
+                Arguments.of("Хризантема", "Карамельная", 299, 10)
+        );
     }
 }

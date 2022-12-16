@@ -27,7 +27,7 @@ public class BasketTests extends ApiTestBase {
     @ParameterizedTest(name = "Item with product_id = {0} is added in basket")
     @Tag("Api")
     @DisplayName("Items in basket adding check")
-    @MethodSource("addItemsInBasket")
+    @MethodSource("diploma.tests.api.api.BasketApi#addItemsInBasket")
     public void addItemsInBasket(String productId, Product product) {
         step("Add item in basket and check it was successful", () -> {
             AddToBasketResponseModel response = basketApi.addItem(productId);
@@ -35,13 +35,5 @@ public class BasketTests extends ApiTestBase {
             assertEquals(response.getEcommerce().getProducts().get(0).getQuantity(), product.getQuantity());
             assertEquals(response.getEcommerce().getProducts().get(0).getId(), product.getId());
         });
-    }
-
-    static Stream<Arguments> addItemsInBasket() {
-        return Stream.of(
-                Arguments.of("9489", new Product("0009489", "Новогодний букет \\\"Красный\\\" в стаканчике", 1, "Букеты", 1199)),
-                Arguments.of("908", new Product("0000908", "Букет \\\"С Днем Рождения\\\" мини", 1, "Букеты", 3199)),
-                Arguments.of("2572", new Product("0002572", "Букет \\\"Белые Розы и Альстромерии\\\" в коробке", 1, "Букеты", 3299))
-        );
     }
 }
