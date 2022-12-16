@@ -9,8 +9,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 
-import java.util.stream.Stream;
-
 @Tag("Web")
 @Tag("All")
 @Epic("MegaZvet")
